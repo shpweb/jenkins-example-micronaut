@@ -6,11 +6,8 @@ pipeline {
   environment {
     HEROKU_API_KEY=credentials('heroku-api-key')
     APP_NAME='jenkins-example-micronaut'
-    IMAGE_NAME='darinpope/java-web-app'
+    IMAGE_NAME='darinpope/jenkins-example-micronaut'
     IMAGE_TAG='latest'
-  }
-  parameters { 
-    string(name: 'APP_NAME', defaultValue: '', description: 'What is the Heroku app name?') 
   }
   stages {
     stage('Build') {
