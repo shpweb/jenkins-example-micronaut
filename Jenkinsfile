@@ -1,5 +1,6 @@
 pipeline {
   agent any
+  import hudson.model.*
   options {
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
