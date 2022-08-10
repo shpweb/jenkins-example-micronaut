@@ -1,6 +1,5 @@
 pipeline {
   agent any
-  import hudson.model.*
   options {
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
@@ -13,7 +12,10 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'docker build -t $IMAGE_NAME:$IMAGE_TAG .'
+        sh '''
+        import hudson.model.*
+        docker build -t $IMAGE_NAME:$IMAGE_TAG .
+        '''
       }
     }
     stage('Login') {
