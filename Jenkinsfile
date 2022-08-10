@@ -41,6 +41,11 @@ pipeline {
   }
   post {
     always {
+      script {
+                if (getContext(hudson.FilePath)) {
+                    deleteDir()
+                }
+            }
       sh 'docker logout'
     }
   }
